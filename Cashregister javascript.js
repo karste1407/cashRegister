@@ -5,6 +5,8 @@ function StaffMember(name,discountPercent) {
 
 var sally = new StaffMember("Sally",5);
 var bob = new StaffMember("Bob",10);
+var cashRegister = {    
+    total: 0,
     lastTransactionAmount: 0,
     add: function (itemCost) {
         this.total += (itemCost || 0);
