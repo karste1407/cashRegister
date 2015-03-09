@@ -1,34 +1,27 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		
-		<meta charset="UTF-8">
-		<title>CashRegister</title>
-		<script rel="text/javascript" href="Cashregister javascript.js"></script>
-	
-	</head>
-	<body>
-		
-		<h1>Cash Register</h1>
-		<h3>Products</h3>
-		
-		<ul>
-			<li>Eggs</li>
-			<li>Milk</li>
-			<li>Magazine</li>
-			<li>Chocolate</li>
-		</ul>
+  <head>
+    <script src="javascript.js"></script>
+    <meta charset="UTF-8">
+    <title>CashRegister</title>
 
-		<h4>Your total is: 0</h4>
+    
+  </head>
+  <body onload="events();">
+    <h1>Cash Register</h1>
+    <h3>Products</h3>
+    
+    <ul>
+      <li>Eggs</li>
+      <li>Milk</li>
+      <li>Magazine</li>
+      <li>Chocolate</li>
+    </ul>
 
-		<script type="text/javascript">
-			$(document).ready(function() {
-    			$('li').click(function() {
-        			cashRegister.scan(this,1);
-    			});
-    			$('h4').append(' ' + cashRegister.total.toFixed(2))
-			});
-		</script>
-	
-	</body>
+    <h4>Your total is: 0</h4>  
+    <b>basket</b>
+    <ul id="basket">
+
+    </ul>
+  </body>
 </html>

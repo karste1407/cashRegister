@@ -5,6 +5,7 @@ function StaffMember(name,discountPercent) {
 
 var sally = new StaffMember("Sally",5);
 var bob = new StaffMember("Bob",10);
+
 var cashRegister = {    
     total: 0,
     lastTransactionAmount: 0,
@@ -14,7 +15,7 @@ var cashRegister = {
     },
     scan: function (item, quantity) {
         switch (item) {
-        case "eggs": this.add(0.98 * quantity); break;
+        case "eggs": this.add(0.98 * quantity);  break;
         case "milk": this.add(1.23 * quantity); break;
         case "magazine": this.add(4.99 * quantity); break;
         case "chocolate": this.add(0.45 * quantity); break;
@@ -32,13 +33,26 @@ var cashRegister = {
     }
     
 };
-
-cashRegister.scan('eggs',1);
-cashRegister.scan('milk',1);
-cashRegister.scan('magazine',3);
+/*
+cashRegister.scan("eggs",1);
+cashRegister.scan("milk",1);
+cashRegister.scan("magazine",3);
 // Apply your staff discount by passing the 'me' object 
 // to applyStaffDiscount
 cashRegister.applyStaffDiscount(me);
 
 // Show the total bill
 console.log('Your bill is '+cashRegister.total.toFixed(2));
+*/
+function events() {
+    var lis = document.getElementsByTagName("li");
+    for(var i = 0; i < lis.length; i++) {
+	lis[i].addEventListener("click", function() {
+	    cashRegister.scan(this.innerHTML.toLowerCase(), 1);
+	    document.getElementsByTagName("h4")[0].innerHTML="Your totoal: " + cashRegister.total;
+	    var li = document.createElement("li");
+	    li.innerHTML = this.innerHTML;
+	    document.getElementById("basket").appendChild(li);
+	});
+    }
+}
